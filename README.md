@@ -1,4 +1,4 @@
-# udemy-reversi-webapp
+# reversi
 
 ## Node.js とパッケージのインストール方法
 
