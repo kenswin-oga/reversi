@@ -1,7 +1,7 @@
 import express from 'express'
 import { GameGateway } from '../dataaccess/gemeGateway'
 import { TurnGateway } from '../dataaccess/turnGateway'
-import { MoveGateway } from '../dataaccess/modeGateway'
+import { MoveGateway } from '../dataaccess/moveGateway'
 import { SquareGateway } from '../dataaccess/squareGateway'
 import { connectMySQL } from '../dataaccess/connection'
 import { DARK, LIGHT } from '../application/constants'
