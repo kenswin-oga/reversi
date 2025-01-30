@@ -30,8 +30,12 @@ async function showBoard(turnCount) {
       } else {
         squareElement.addEventListener('click', async () => {
           const nextTurnCount = turnCount + 1
-          await registerTurn(nextTurnCount, nextDisc, x, y)
-          await showBoard(nextTurnCount)
+          const registerTurnResponse = await registerTurn(
+            nextTurnCount, nextDisc, x, y
+          )
+          if (registerTurnResponse.ok) {
+            await showBoard(nextTurnCount)
+          }
         })
       }
 
@@ -56,7 +60,7 @@ async function registerTurn(turnCount, disc, x, y) {
     }
   }
 
-  await fetch('/api/games/latest/turns', {
+  return await fetch('/api/games/latest/turns', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
