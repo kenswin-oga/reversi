@@ -1,19 +1,20 @@
 import mysql from 'mysql2/promise'
-import { Turn } from "./turn";
-import { TurnGateway } from '../../../infrastructure/turnGateway';
-import { SquareGateway } from '../../../infrastructure/squareGateway';
-import { MoveGateway } from '../../../infrastructure/moveGateway';
-import { Move } from './move';
-import { toDisc } from './disc';
-import { Point } from './point';
-import { Board } from './board';
-import { DomainError } from '../error/domainError';
+import { Turn } from "../../../domain/model/turn/turn";
+import { TurnGateway } from './turnGateway';
+import { SquareGateway } from './squareGateway';
+import { MoveGateway } from './moveGateway';
+import { Move } from '../../../domain/model/turn/move';
+import { toDisc } from '../../../domain/model/turn/disc';
+import { Point } from '../../../domain/model/turn/point';
+import { Board } from '../../../domain/model/turn/board';
+import { DomainError } from '../../../domain/model/error/domainError';
+import { TurnRepository } from './turnRepository';
 
 const turnGateway = new TurnGateway()
 const moveGateway = new MoveGateway()
 const squareGateway = new SquareGateway()
 
-export class TurnRepository {
+export class TurnMySQLRepository implements TurnRepository {
     async findForGameIdTurnCount(
         conn: mysql.Connection,
         gameId: number,
