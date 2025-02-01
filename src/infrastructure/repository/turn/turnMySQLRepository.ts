@@ -8,7 +8,7 @@ import { toDisc } from '../../../domain/model/turn/disc';
 import { Point } from '../../../domain/model/turn/point';
 import { Board } from '../../../domain/model/turn/board';
 import { DomainError } from '../../../domain/model/error/domainError';
-import { TurnRepository } from './turnRepository';
+import { TurnRepository } from '../../../domain/model/turn/turnRepository';
 
 const turnGateway = new TurnGateway()
 const moveGateway = new MoveGateway()

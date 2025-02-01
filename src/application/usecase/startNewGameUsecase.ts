@@ -1,15 +1,15 @@
 import { connectMySQL } from '../../infrastructure/connection'
 import { firstTurn } from '../../domain/model/turn/turn'
 import { Game } from '../../domain/model/game/game'
-import { TurnRepository } from '../../infrastructure/repository/turn/turnRepository'
+import { TurnRepository } from '../../domain/model/turn/turnRepository'
 import { GameRepository } from '../../domain/model/game/gameRepository'
 
-export class GameService {
+export class StartNewGameUsecase {
     constructor(
       private _gameRepository: GameRepository,
       private _turnRepository: TurnRepository
     ) {}
-    async startNewGame() {
+    async run() {
         const now = new Date()
   
         const conn = await connectMySQL()

@@ -1,5 +1,5 @@
 import mysql from 'mysql2/promise'
-import { Turn } from "../../../domain/model/turn/turn";
+import { Turn } from "./turn";
 
 export interface TurnRepository {
     findForGameIdTurnCount(
