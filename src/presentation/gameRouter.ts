@@ -32,10 +32,6 @@ gameRouter.get(
   async (req, res: express.Response<GetGamesResponseBody>) => {
     const output = await findLastGamesUsecase.run()
 
-    console.log("[コントローラ]取得データ")
-    console.log(output)
-    console.log("-----------------")
-
     const responseBodyGames = output.map((g) => {
       return {
         id: g.gameId,
@@ -50,10 +46,6 @@ gameRouter.get(
     const responseBody = {
       games: responseBodyGames
     }
-
-    console.log("[コントローラ]実際に返すデータ")
-    console.log(responseBody)
-    console.log("-----------------")
 
     res.json(responseBody)
   }

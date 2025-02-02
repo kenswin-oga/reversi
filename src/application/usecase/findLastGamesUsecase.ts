@@ -10,9 +10,6 @@ export class FindLastGamesUsecase {
         const conn = await connectMySQL()
         try {
             const res =  await this._queryService.query(conn, FIND_COUNT)
-            console.log("[ユースケース]取得データ")
-            console.log(res)
-            console.log("-----------------")
             return res
         } finally {
             conn.end()

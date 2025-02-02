@@ -3,13 +3,7 @@ const gamesTableBodyElement = document.getElementById('games-table-body')
 async function showGames() {
     const response = await fetch('/api/games')
     const responseBody = await response.json()
-    console.log("[フロント]取得jsonデータ")
-    console.log(responseBody)
-    console.log("-----------------")
     const games = responseBody.games
-    console.log("[フロント]取得jsongamesデータ")
-    console.log(games)
-    console.log("-----------------")
 
     while (gamesTableBodyElement.firstChild) {
         gamesTableBodyElement.removeChild(gamesTableBodyElement.firstChild)
@@ -32,9 +26,6 @@ async function showGames() {
 
         gamesTableBodyElement.appendChild(trElement)
     })
-    console.log("[フロント]tableBodyElementデータ")
-    console.log(gamesTableBodyElement)
-    console.log("-----------------")
 }
 
 showGames()

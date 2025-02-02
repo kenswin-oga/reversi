@@ -31,9 +31,6 @@ limit ?
             [limit.toString()]
         )
         const records = selectResult[0]
-        console.log("[クエリサービス]取得データ")
-        console.log(records)
-        console.log("---------------------")
 
         return records.map((r) => {
             return new FindLastGamesQueryModel(
